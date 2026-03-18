@@ -35,7 +35,7 @@ https://dummyjson.com/quotes/random
 ---
 
 ## 📂 Project Structure
-
+```
 src/
 │── components/
 │   ├── QuoteCard.jsx
@@ -44,7 +44,7 @@ src/
 │── App.jsx
 │── App.css
 │── main.jsx
-
+```
 ---
 
 ## ⚙️ Installation & Setup
