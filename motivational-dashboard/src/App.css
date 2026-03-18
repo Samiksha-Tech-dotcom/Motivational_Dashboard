@@ -1,406 +1,282 @@
+/* 🌌 GLOBAL STYLES */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  color: white;
+
+  background: radial-gradient(circle at top, #1a1a2e, #0f0f1a 60%, #050509 100%);
+  overflow-x: hidden;
 }
 
-/* 🌌 Background */
+/* 🌌 WRAPPER */
 .appWrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  overflow: hidden;
-
-  background:
-    radial-gradient(ellipse at top, rgba(50,80,150,0.4), transparent),
-    radial-gradient(ellipse at bottom, #020111 0%, #000000 100%);
+  min-height: 100vh;
 }
 
-/* 🌟 Stars */
+/* ✨ PARTICLES CONTAINER */
 .particles {
   position: fixed;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   z-index: 0;
 }
 
-.particles::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(1px 1px at 10% 20%, white, transparent),
-    radial-gradient(1px 1px at 30% 80%, white, transparent),
-    radial-gradient(1px 1px at 50% 50%, white, transparent),
-    radial-gradient(1px 1px at 70% 30%, white, transparent),
-    radial-gradient(1px 1px at 90% 70%, white, transparent),
-    radial-gradient(1px 1px at 20% 60%, white, transparent),
-    radial-gradient(1px 1px at 80% 10%, white, transparent);
-  animation: twinkle 4s infinite alternate;
-}
-
-.particles::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(2px 2px at 40% 20%, white, transparent),
-    radial-gradient(2px 2px at 60% 70%, white, transparent);
-  animation: twinkleSlow 6s infinite alternate;
-}
-
-@keyframes twinkle {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
-}
-
-@keyframes twinkleSlow {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.9; }
-  100% { opacity: 0.4; }
-}
-
-/* 🌠 Shooting stars */
-.shooting-star {
-  position: fixed;
-  width: 2px;
-  height: 2px;
-  background: white;
-  box-shadow: 0 0 8px white;
-  opacity: 0;
-}
-
-.star1 {
-  top: 10%;
-  left: -10%;
-  animation: shoot1 8s linear infinite;
-}
-
-.star2 {
-  top: 30%;
-  left: -20%;
-  animation: shoot2 10s linear infinite;
-}
-
-.star3 {
-  top: 50%;
-  left: -15%;
-  animation: shoot3 12s linear infinite;
-}
-
-@keyframes shoot1 {
-  0% { transform: translate(0,0); opacity: 1; }
-  100% { transform: translate(100vw, 60vh); opacity: 0; }
-}
-
-@keyframes shoot2 {
-  0% { transform: translate(0,0); opacity: 0; }
-  20% { opacity: 1; }
-  100% { transform: translate(100vw, 50vh); opacity: 0; }
-}
-
-@keyframes shoot3 {
-  0% { transform: translate(0,0); opacity: 0; }
-  30% { opacity: 1; }
-  100% { transform: translate(100vw, 70vh); opacity: 0; }
-}
-
-/* 🎯 Content */
-.container {
-  z-index: 2;
-  text-align: center;
-  color: white;
-}
-
-/* 🧊 Card */
-.quoteCard {
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 25px;
-}
-
-/* ✨ Fade */
-.fadeIn { opacity: 1; transition: 0.5s; }
-.fadeOut { opacity: 0.3; }
-
-/* 🎇 Sparkle */
-.sparkle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  animation: sparkleAnim 0.8s forwards;
-}
-
-@keyframes sparkleAnim {
-  from { opacity: 1; transform: translate(0,0); }
-  to { opacity: 0; transform: translate(var(--x), var(--y)); }
-}
-/* 🌌 More depth in sky */
-.appWrapper {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-
-  background:
-    radial-gradient(ellipse at top, rgba(80,120,255,0.25), transparent),
-    radial-gradient(ellipse at bottom, #01010a 0%, #000000 100%);
-}
-.particles::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8), transparent),
-    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.6), transparent),
-    radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.7), transparent),
-    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.6), transparent),
-    radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.7), transparent),
-    radial-gradient(1px 1px at 20% 60%, rgba(255,255,255,0.5), transparent),
-    radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.8), transparent);
-  animation: twinkle 5s infinite ease-in-out alternate;
-  filter: drop-shadow(0 0 3px white);
-}
-
-.particles::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(2px 2px at 40% 20%, rgba(255,255,255,0.9), transparent),
-    radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.8), transparent);
-  animation: twinkleSlow 8s infinite ease-in-out alternate;
-  filter: drop-shadow(0 0 6px white);
-}
-
-/* ⭐ variations */
-.star1 {
-  top: 12%;
-  left: -20%;
-  animation: shoot1 8s linear infinite;
-}
-
-.star2 {
-  top: 35%;
-  left: -25%;
-  animation: shoot2 11s linear infinite;
-}
-
-.star3 {
-  top: 60%;
-  left: -15%;
-  animation: shoot3 13s linear infinite;
-}
-
-/* 🌠 animations */
-@keyframes shoot1 {
-  0% {
-    transform: translate(0, 0) rotate(25deg);
-    opacity: 0;
-  }
-  10% { opacity: 1; }
-  100% {
-    transform: translate(120vw, 70vh) rotate(25deg);
-    opacity: 0;
-  }
-}
-
-@keyframes shoot2 {
-  0% {
-    transform: translate(0, 0) rotate(20deg);
-    opacity: 0;
-  }
-  15% { opacity: 1; }
-  100% {
-    transform: translate(120vw, 60vh) rotate(20deg);
-    opacity: 0;
-  }
-}
-
-@keyframes shoot3 {
-  0% {
-    transform: translate(0, 0) rotate(30deg);
-    opacity: 0;
-  }
-  20% { opacity: 1; }
-  100% {
-    transform: translate(120vw, 80vh) rotate(30deg);
-    opacity: 0;
-  }
-}.sparkle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, white 0%, transparent 70%);
-  border-radius: 50%;
-  animation: sparkleAnim 0.9s ease-out forwards;
-  pointer-events: none;
-}
-
-@keyframes sparkleAnim {
-  from {
-    opacity: 1;
-    transform: translate(0, 0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translate(var(--x), var(--y)) scale(0.2);
-  }
-}
-/* ✨ Quote text */
-.quoteText {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
-
-.author {
-  opacity: 0.7;
-  margin-bottom: 15px;
-}
-
-/* 🎯 Buttons group */
-.btnGroup {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-/* 🔘 Modern buttons */
-button {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.1);
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
-}
-
-/* ❤️ Like button */
-.likeBtn {
-  font-size: 18px;
-}
-
-.likeBtn.liked {
-  color: red;
-  transform: scale(1.2);
-}
-
-/* 📦 Liked section */
-.likedContainer {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* 🧊 Liked cards */
-.likedCard {
-  background: rgba(255,255,255,0.06);
-  padding: 15px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  position: relative;
-}
-
-/* ❌ Remove button */
-.removeBtn {
-  margin-top: 10px;
-  background: rgba(255,0,0,0.2);
-}
-
-.removeBtn:hover {
-  background: rgba(255,0,0,0.4);
-}
-
-/* 😶 Empty state */
-.empty {
-  opacity: 0.6;
-}
-/* 🧊 Swipe card */
-.swipeCard {
-  transition: transform 0.3s ease;
-  cursor: grab;
-}
-
-/* 🧨 swipe hint effect */
-.swipeCard:active {
-  cursor: grabbing;
-}
-
-/* ❌ remove button nicer */
-.removeBtn {
-  margin-top: 10px;
-  background: rgba(255, 0, 0, 0.2);
-  border-radius: 8px;
-}
-
-.removeBtn:hover {
-  background: rgba(255, 0, 0, 0.4);
-}
-/* 🌌 Night Sky Background */
-.appWrapper {
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #1a1a2e, #0f0f1a 80%);
-  position: relative;
-  overflow: hidden;
-}
-
-/* ✨ Stars Layer */
+/* ⭐ PARTICLES */
 .particles::before,
 .particles::after {
   content: "";
   position: absolute;
-  width: 200%;
-  height: 200%;
-  background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
-  background-size: 120px 120px; /* ⭐ LESS DENSE */
-  animation: moveStars 150s linear infinite, twinkle 4s ease-in-out infinite alternate;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+
+  box-shadow:
+    50px 80px white,
+    120px 200px rgba(255,255,255,0.8),
+    200px 150px white,
+    300px 250px rgba(255,255,255,0.7),
+    400px 100px white,
+    600px 200px rgba(255,255,255,0.6),
+    800px 300px white,
+    1000px 150px rgba(255,255,255,0.7),
+    1200px 250px white,
+    1400px 100px rgba(255,255,255,0.8);
+
+  animation: sparkleMove 18s linear infinite;
+  opacity: 0.7;
 }
 
-/* ⭐ Second layer (depth) */
+/* 🌠 SECOND LAYER */
 .particles::after {
-  background-size: 180px 180px;
-  animation-duration: 220s;
+  opacity: 0.4;
+  animation-duration: 25s;
+
+  box-shadow:
+    100px 300px white,
+    250px 100px rgba(255,255,255,0.6),
+    450px 250px white,
+    650px 150px rgba(255,255,255,0.5),
+    900px 200px white,
+    1100px 80px rgba(255,255,255,0.6),
+    1300px 300px white;
 }
 
-/* ✨ Twinkle */
+/* 💫 MOVEMENT */
+@keyframes sparkleMove {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+/* ✨ TWINKLE */
+.particles::before {
+  animation: sparkleMove 18s linear infinite, twinkle 3s ease-in-out infinite alternate;
+}
+
+.particles::after {
+  animation: sparkleMove 25s linear infinite, twinkle 4s ease-in-out infinite alternate;
+}
+
 @keyframes twinkle {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-/* 🌠 Smooth movement */
-@keyframes moveStars {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-400px, -400px); }
-}
-
-/* 🧊 Make UI appear above stars */
+/* 📦 MAIN CONTAINER */
 .container {
   position: relative;
-  z-index: 2;
+  z-index: 1;
+  max-width: 600px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
 }
-.appWrapper {
-  min-height: 100vh;
-  background: linear-gradient(to bottom, #1f1c2c, #2a0845);
-  position: relative;
-  overflow: hidden;
+
+/* ✨ HEADING */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+
+  background: linear-gradient(90deg, #a18cd1, #fbc2eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 10px rgba(161,140,209,0.8),
+    0 0 20px rgba(251,194,235,0.6);
+}
+
+/* 💎 QUOTE CARD */
+.quoteCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+
+  border-radius: 16px;
+  padding: 20px;
+  margin-top: 20px;
+
+  box-shadow:
+    0 0 20px rgba(140, 120, 255, 0.3),
+    0 0 40px rgba(100, 80, 255, 0.2);
+
+  transition: 0.3s;
+}
+
+.quoteCard:hover {
+  transform: scale(1.02);
+
+  box-shadow:
+    0 0 30px rgba(160, 140, 255, 0.6),
+    0 0 60px rgba(120, 100, 255, 0.4);
+}
+
+/* ✍️ QUOTE TEXT */
+.quoteText {
+  font-size: 1.3rem;
+  line-height: 1.6;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.6),
+    0 0 15px rgba(180,200,255,0.4);
+}
+
+/* 👤 AUTHOR */
+.author {
+  margin-top: 10px;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* 🔘 BUTTONS */
+button {
+  margin: 10px 5px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+
+  transition: 0.3s;
+
+  box-shadow: 0 0 10px rgba(118,75,162,0.5);
+}
+
+button:hover {
+  transform: scale(1.05);
+
+  box-shadow:
+    0 0 20px rgba(118,75,162,0.8),
+    0 0 40px rgba(102,126,234,0.6);
+}
+
+/* ❤️ LIKE BUTTON */
+.likeBtn.liked {
+  background: linear-gradient(135deg, #ff6a88, #ff99ac);
+
+  box-shadow:
+    0 0 15px rgba(255,106,136,0.8),
+    0 0 30px rgba(255,153,172,0.6);
+}
+
+/* 📋 LIKED QUOTES LIST */
+.likedList {
+  margin-top: 30px;
+  text-align: left;
+}
+
+/* 🧾 SINGLE LIKED ITEM */
+.likedItem {
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: 0.3s;
+}
+
+.likedItem:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ❌ REMOVE BUTTON */
+.removeBtn {
+  background: #ff4d6d;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.removeBtn:hover {
+  background: #ff1e4d;
+}
+
+/* 💫 SMOOTH TRANSITIONS */
+* {
+  transition: all 0.3s ease;
+}.particles::before,
+.particles::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow:
+    50px 80px #a18cd1,
+    120px 200px #fbc2eb,
+    200px 150px #ffffff,
+    300px 250px #a18cd1,
+    400px 100px #fbc2eb,
+    600px 200px #ffffff,
+    800px 300px #a18cd1,
+    1000px 150px #fbc2eb,
+    1200px 250px #ffffff,
+    1400px 100px #a18cd1,
+    1600px 200px #fbc2eb,
+    1800px 300px #ffffff;
+
+  animation: sparkleMove 20s linear infinite, twinkle 3s ease-in-out infinite alternate;
+
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+}.particles::after {
+  opacity: 0.5;
+
+  animation-duration: 30s;
+
+  box-shadow:
+    100px 300px #ffffff,
+    250px 100px #a18cd1,
+    450px 250px #fbc2eb,
+    650px 150px #ffffff,
+    900px 200px #a18cd1,
+    1100px 80px #fbc2eb,
+    1300px 300px #ffffff,
+    1500px 200px #a18cd1;
+}
+
+.removeBtn:hover {
+  transform: scale(1.2);
+  color: #ff1e4d;
+
+  text-shadow: 0 0 10px rgba(255,30,77,0.8);
 }

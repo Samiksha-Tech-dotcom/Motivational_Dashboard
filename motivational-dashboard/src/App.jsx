@@ -5,19 +5,11 @@ import "./App.css";
 
 function App() {
 
-  const quotesData = [
-    { content: "Push yourself, because no one else is going to do it for you.", author: "Unknown" },
-    { content: "Dream it. Wish it. Do it.", author: "Unknown" },
-    { content: "Success doesn’t just find you. You have to go out and get it.", author: "Unknown" },
-    { content: "Stay positive, work hard, make it happen.", author: "Unknown" },
-    { content: "Don’t stop until you’re proud.", author: "Unknown" }
-  ];
-
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // ✅ FIX: initialize from localStorage directly
+  // ✅ localStorage init (SAFE)
   const [likedQuotes, setLikedQuotes] = useState(() => {
     try {
       const stored = localStorage.getItem("likedQuotes");
@@ -27,26 +19,38 @@ function App() {
     }
   });
 
-  // ✅ SAVE always
+  // ✅ save to localStorage
   useEffect(() => {
     localStorage.setItem("likedQuotes", JSON.stringify(likedQuotes));
   }, [likedQuotes]);
 
-  const fetchQuote = () => {
+  // ✅ FETCH QUOTE (WORKING API)
+  const fetchQuote = async () => {
     setLoading(true);
 
-    setTimeout(() => {
-      const random = quotesData[Math.floor(Math.random() * quotesData.length)];
-      setQuote(random.content);
-      setAuthor(random.author);
-      setLoading(false);
-    }, 300);
+    try {
+      // 🔥 using working API (no SSL issue)
+      const res = await fetch("https://dummyjson.com/quotes/random");
+
+      const data = await res.json();
+
+      setQuote(data.quote);
+      setAuthor(data.author);
+
+    } catch (err) {
+      console.error("API error:", err);
+      setQuote("Failed to load quote 😢");
+      setAuthor("");
+    }
+
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchQuote();
   }, []);
 
+  // ❤️ LIKE
   const toggleLike = () => {
     if (!quote) return;
 
@@ -62,6 +66,7 @@ function App() {
     }
   };
 
+  // ❌ REMOVE
   const removeQuote = (id) => {
     setLikedQuotes(prev => prev.filter(q => q.id !== id));
   };
@@ -70,7 +75,9 @@ function App() {
 
   return (
     <div className="appWrapper">
-      <div className="particles"></div> {/* 🌟 IMPORTANT */}
+
+      {/* 🌌 particles */}
+      <div className="particles"></div>
 
       <div className="container">
         <h1>Motivational Dashboard</h1>
@@ -91,6 +98,7 @@ function App() {
           removeQuote={removeQuote}
         />
       </div>
+
     </div>
   );
 }
