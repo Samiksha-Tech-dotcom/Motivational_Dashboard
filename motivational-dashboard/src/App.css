@@ -1,0 +1,406 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 🌌 Background */
+.appWrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(ellipse at top, rgba(50,80,150,0.4), transparent),
+    radial-gradient(ellipse at bottom, #020111 0%, #000000 100%);
+}
+
+/* 🌟 Stars */
+.particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.particles::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(1px 1px at 10% 20%, white, transparent),
+    radial-gradient(1px 1px at 30% 80%, white, transparent),
+    radial-gradient(1px 1px at 50% 50%, white, transparent),
+    radial-gradient(1px 1px at 70% 30%, white, transparent),
+    radial-gradient(1px 1px at 90% 70%, white, transparent),
+    radial-gradient(1px 1px at 20% 60%, white, transparent),
+    radial-gradient(1px 1px at 80% 10%, white, transparent);
+  animation: twinkle 4s infinite alternate;
+}
+
+.particles::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(2px 2px at 40% 20%, white, transparent),
+    radial-gradient(2px 2px at 60% 70%, white, transparent);
+  animation: twinkleSlow 6s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes twinkleSlow {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.4; }
+}
+
+/* 🌠 Shooting stars */
+.shooting-star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  box-shadow: 0 0 8px white;
+  opacity: 0;
+}
+
+.star1 {
+  top: 10%;
+  left: -10%;
+  animation: shoot1 8s linear infinite;
+}
+
+.star2 {
+  top: 30%;
+  left: -20%;
+  animation: shoot2 10s linear infinite;
+}
+
+.star3 {
+  top: 50%;
+  left: -15%;
+  animation: shoot3 12s linear infinite;
+}
+
+@keyframes shoot1 {
+  0% { transform: translate(0,0); opacity: 1; }
+  100% { transform: translate(100vw, 60vh); opacity: 0; }
+}
+
+@keyframes shoot2 {
+  0% { transform: translate(0,0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(100vw, 50vh); opacity: 0; }
+}
+
+@keyframes shoot3 {
+  0% { transform: translate(0,0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translate(100vw, 70vh); opacity: 0; }
+}
+
+/* 🎯 Content */
+.container {
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
+
+/* 🧊 Card */
+.quoteCard {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+/* ✨ Fade */
+.fadeIn { opacity: 1; transition: 0.5s; }
+.fadeOut { opacity: 0.3; }
+
+/* 🎇 Sparkle */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkleAnim 0.8s forwards;
+}
+
+@keyframes sparkleAnim {
+  from { opacity: 1; transform: translate(0,0); }
+  to { opacity: 0; transform: translate(var(--x), var(--y)); }
+}
+/* 🌌 More depth in sky */
+.appWrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(ellipse at top, rgba(80,120,255,0.25), transparent),
+    radial-gradient(ellipse at bottom, #01010a 0%, #000000 100%);
+}
+.particles::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,0.6), transparent),
+    radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,0.7), transparent),
+    radial-gradient(1px 1px at 20% 60%, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.8), transparent);
+  animation: twinkle 5s infinite ease-in-out alternate;
+  filter: drop-shadow(0 0 3px white);
+}
+
+.particles::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(2px 2px at 40% 20%, rgba(255,255,255,0.9), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.8), transparent);
+  animation: twinkleSlow 8s infinite ease-in-out alternate;
+  filter: drop-shadow(0 0 6px white);
+}
+
+/* ⭐ variations */
+.star1 {
+  top: 12%;
+  left: -20%;
+  animation: shoot1 8s linear infinite;
+}
+
+.star2 {
+  top: 35%;
+  left: -25%;
+  animation: shoot2 11s linear infinite;
+}
+
+.star3 {
+  top: 60%;
+  left: -15%;
+  animation: shoot3 13s linear infinite;
+}
+
+/* 🌠 animations */
+@keyframes shoot1 {
+  0% {
+    transform: translate(0, 0) rotate(25deg);
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  100% {
+    transform: translate(120vw, 70vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shoot2 {
+  0% {
+    transform: translate(0, 0) rotate(20deg);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  100% {
+    transform: translate(120vw, 60vh) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes shoot3 {
+  0% {
+    transform: translate(0, 0) rotate(30deg);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translate(120vw, 80vh) rotate(30deg);
+    opacity: 0;
+  }
+}.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, white 0%, transparent 70%);
+  border-radius: 50%;
+  animation: sparkleAnim 0.9s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes sparkleAnim {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(0.2);
+  }
+}
+/* ✨ Quote text */
+.quoteText {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.author {
+  opacity: 0.7;
+  margin-bottom: 15px;
+}
+
+/* 🎯 Buttons group */
+.btnGroup {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* 🔘 Modern buttons */
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+/* ❤️ Like button */
+.likeBtn {
+  font-size: 18px;
+}
+
+.likeBtn.liked {
+  color: red;
+  transform: scale(1.2);
+}
+
+/* 📦 Liked section */
+.likedContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 🧊 Liked cards */
+.likedCard {
+  background: rgba(255,255,255,0.06);
+  padding: 15px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+/* ❌ Remove button */
+.removeBtn {
+  margin-top: 10px;
+  background: rgba(255,0,0,0.2);
+}
+
+.removeBtn:hover {
+  background: rgba(255,0,0,0.4);
+}
+
+/* 😶 Empty state */
+.empty {
+  opacity: 0.6;
+}
+/* 🧊 Swipe card */
+.swipeCard {
+  transition: transform 0.3s ease;
+  cursor: grab;
+}
+
+/* 🧨 swipe hint effect */
+.swipeCard:active {
+  cursor: grabbing;
+}
+
+/* ❌ remove button nicer */
+.removeBtn {
+  margin-top: 10px;
+  background: rgba(255, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.removeBtn:hover {
+  background: rgba(255, 0, 0, 0.4);
+}
+/* 🌌 Night Sky Background */
+.appWrapper {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a1a2e, #0f0f1a 80%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ✨ Stars Layer */
+.particles::before,
+.particles::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
+  background-size: 120px 120px; /* ⭐ LESS DENSE */
+  animation: moveStars 150s linear infinite, twinkle 4s ease-in-out infinite alternate;
+}
+
+/* ⭐ Second layer (depth) */
+.particles::after {
+  background-size: 180px 180px;
+  animation-duration: 220s;
+}
+
+/* ✨ Twinkle */
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* 🌠 Smooth movement */
+@keyframes moveStars {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-400px, -400px); }
+}
+
+/* 🧊 Make UI appear above stars */
+.container {
+  position: relative;
+  z-index: 2;
+}
+.appWrapper {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #1f1c2c, #2a0845);
+  position: relative;
+  overflow: hidden;
+}
